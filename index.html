@@ -1,1 +1,394 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>به زودی | Taha International</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            background: linear-gradient(145deg, #0a2f3a 0%, #05181f 100%);
+            font-family: system-ui, 'Segoe UI', 'Tahoma', 'Vazirmatn', 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* انیمیشن‌های پس‌زمینه */
+        .bg-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(255, 215, 120, 0.08);
+            backdrop-filter: blur(4px);
+            border-radius: 60% 40% 70% 30% / 45% 55% 45% 55%;
+            animation: floatShape 25s infinite ease-in-out;
+        }
+
+        .shape-1 {
+            width: 280px;
+            height: 280px;
+            top: -70px;
+            left: -90px;
+            background: radial-gradient(circle, rgba(255,200,100,0.2), rgba(255,160,60,0.05));
+            animation-duration: 28s;
+        }
+
+        .shape-2 {
+            width: 360px;
+            height: 360px;
+            bottom: -120px;
+            right: -80px;
+            background: radial-gradient(circle, rgba(80,200,210,0.15), rgba(30,100,120,0.05));
+            animation-duration: 32s;
+            animation-delay: -5s;
+        }
+
+        .shape-3 {
+            width: 200px;
+            height: 200px;
+            top: 20%;
+            right: 10%;
+            background: rgba(255, 180, 90, 0.1);
+            border-radius: 70% 30% 60% 40% / 40% 50% 50% 60%;
+            animation-duration: 22s;
+            animation-delay: -10s;
+        }
+
+        .shape-4 {
+            width: 450px;
+            height: 450px;
+            bottom: 10%;
+            left: -150px;
+            background: rgba(70, 180, 170, 0.08);
+            border-radius: 50% 50% 40% 60% / 70% 40% 60% 30%;
+            animation-duration: 35s;
+        }
+
+        @keyframes floatShape {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            33% {
+                transform: translate(20px, -25px) rotate(8deg) scale(1.02);
+            }
+            66% {
+                transform: translate(-15px, 15px) rotate(-5deg) scale(0.98);
+            }
+            100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+        }
+
+        /* کارت اصلی */
+        .coming-soon-card {
+            position: relative;
+            z-index: 10;
+            max-width: 720px;
+            width: 90%;
+            background: rgba(15, 35, 42, 0.75);
+            backdrop-filter: blur(16px);
+            border-radius: 64px;
+            border: 1px solid rgba(255, 215, 140, 0.35);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 210, 110, 0.15) inset;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .coming-soon-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 35px 55px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(255, 200, 90, 0.25) inset;
+            border-color: rgba(255, 210, 100, 0.6);
+        }
+
+        /* لوگو یا آیکن */
+        .icon-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 120px;
+            padding: 1rem 1.8rem;
+            margin-bottom: 1.8rem;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 200, 80, 0.5);
+        }
+
+        .icon-badge span {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #FFE6B0, #FFB347);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* متن اصلی بزودی */
+        .main-headline {
+            font-size: clamp(2.8rem, 10vw, 5.2rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(125deg, #FFF3CF, #FFD966, #FFB347);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.85rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            animation: gentlePulse 2.8s infinite ease-in-out;
+        }
+
+        @keyframes gentlePulse {
+            0% { opacity: 0.9; text-shadow: 0 0 0px rgba(255,205,80,0);}
+            50% { opacity: 1; text-shadow: 0 0 12px rgba(255,190,70,0.4);}
+            100% { opacity: 0.9; text-shadow: 0 0 0px rgba(255,205,80,0);}
+        }
+
+        .sub-message {
+            font-size: 1.2rem;
+            color: #E0F2FE;
+            background: rgba(0, 0, 0, 0.4);
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 60px;
+            backdrop-filter: blur(4px);
+            margin-top: 0.5rem;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        /* بخش دامنه اصلی */
+        .url-container {
+            background: linear-gradient(110deg, #0B2027, #021016);
+            border-radius: 70px;
+            padding: 0.8rem 0.5rem;
+            margin: 1.5rem 0 2rem 0;
+            border: 1px solid rgba(255, 190, 80, 0.6);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.2s;
+        }
+
+        .domain-text {
+            font-family: 'Courier New', 'Fira Code', monospace;
+            font-size: clamp(1.4rem, 5vw, 2.1rem);
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #F9E2A1, #FFC857);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            word-break: break-all;
+            display: inline-block;
+            padding: 0 10px;
+        }
+
+        .domain-note {
+            font-size: 0.85rem;
+            color: #BCD9E6;
+            margin-top: 8px;
+            opacity: 0.8;
+        }
+
+        /* المان های ریسپانسیو */
+        .info-footer {
+            margin-top: 2.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: #B9D2DF;
+            border-top: 1px dashed rgba(255, 200, 100, 0.3);
+            padding-top: 1.8rem;
+        }
+
+        .social-hint {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0,0,0,0.3);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+        }
+
+        .social-hint i {
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* نوار دانلود / عدم نیاز به اسکریپت زیاد */
+        .loader-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .loader-dots span {
+            width: 10px;
+            height: 10px;
+            background: #FFCC77;
+            border-radius: 50%;
+            display: inline-block;
+            animation: bounceDot 1.2s infinite ease-in-out both;
+        }
+
+        .loader-dots span:nth-child(1) { animation-delay: -0.32s; }
+        .loader-dots span:nth-child(2) { animation-delay: -0.16s; }
+        .loader-dots span:nth-child(3) { animation-delay: 0s; }
+
+        @keyframes bounceDot {
+            0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; background: #FFBB55; }
+            40% { transform: scale(1.1); opacity: 1; background: #FFE09D; }
+        }
+
+        /* پاراگراف اضافه برای کمک به سئو و زیبایی */
+        .ready-text {
+            font-size: 0.95rem;
+            background: rgba(0,0,0,0.3);
+            border-radius: 32px;
+            padding: 0.8rem 1rem;
+            margin-top: 1.2rem;
+            color: #c9e2ed;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* موبایل فرندلی */
+        @media (max-width: 550px) {
+            .coming-soon-card {
+                padding: 1.8rem 1.2rem;
+                border-radius: 48px;
+            }
+            .icon-badge span {
+                font-size: 1.7rem;
+            }
+            .info-footer {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+        }
+
+        /* حذف هایلایت ناخواسته موبایل */
+        .domain-text {
+            user-select: all;
+            cursor: copy;
+        }
+
+        /* شفافیت بیشتر */
+        hr {
+            border-color: rgba(255,200,100,0.2);
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+    <div class="shape shape-4"></div>
+</div>
+
+<main class="coming-soon-card">
+    <!-- آیکون / برند -->
+    <div class="icon-badge">
+        <span>✦ Taha Intl ✦</span>
+    </div>
+
+    <!-- متن اصلی : بزودی -->
+    <h1 class="main-headline">
+        به زودی...
+    </h1>
+    
+    <!-- زیرنویس شیک -->
+    <div class="sub-message">
+        در حال آماده‌سازی تجربه‌ای نوین
+    </div>
+
+    <!-- آدرس دامنه مشخص (www.tahaintl.ir) -->
+    <div class="url-container">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap;">
+            <span style="color:#EEDBAA; font-size:1.2rem;">🌐</span>
+            <span class="domain-text">www.tahaintl.ir</span>
+            <span style="color:#EEDBAA; font-size:1.2rem;">✨</span>
+        </div>
+        <div class="domain-note">
+            🔹 آدرس رسمی ما — به زودی با امکانات منحصر‌به‌فرد 🔹
+        </div>
+    </div>
+
+    <!-- انیمیشن نقطه‌ها برای حس زنده بودن -->
+    <div class="loader-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- پیام تکمیلی با تاکید روی tahaintl.ir -->
+    <div class="ready-text">
+        🔸 سایت <strong style="color:#FFD966;">www.tahaintl.ir</strong> در حال راه‌اندازی است.
+        کادر فنی مشغول طراحی یک پلتفرم حرفه‌ای می‌باشند. همینجا با ما همراه باشید. 🔸
+    </div>
+
+    <!-- فوتر با اطلاعات تماس نمادین -->
+    <div class="info-footer">
+        <div class="social-hint">
+            <span>📧</span> <i>info@tahaintl.ir</i>
+        </div>
+        <div class="social-hint">
+            <span>📱</span> <i>به زودی در شبکه‌های اجتماعی</i>
+        </div>
+        <div class="social-hint">
+            <span>⏳</span> <i>لحظات تا رونمایی...</i>
+        </div>
+    </div>
+    
+    <!-- یک خط بسیار ظریف با کپی رایت و یادآوری دامنه -->
+    <div style="margin-top: 18px; font-size: 0.7rem; opacity: 0.6; color: #b7d0dc;">
+        www.tahaintl.ir | تمامی حقوق محفوظ است ©
+    </div>
+</main>
+
+<!-- اسکریپت کوچک فقط برای نمایش در کنسول پیام دوستانه (اختیاری) و غیر اخلالگر -->
+<script>
+    (function() {
+        // فقط یک پیام دوستانه در کنسول برای توسعه‌دهندگان محترم (تأکید روی دامنه)
+        console.log("%c🌐 Taha International - Coming Soon 🌐", "color: #FFC857; font-size: 16px; font-weight: bold;");
+        console.log("%cwww.tahaintl.ir | به زودی با طراحی اختصاصی", "color: #B3E4F5; font-size: 12px;");
+        // همچنین اطمینان از قابل کلیک نبودن لینک تصادفی (هیچ لینک مزاحم)
+        // نمایش خودکار تاریخ یا بروزرسانی در عنوان (اختیاری)
+        const domainElement = document.querySelector('.domain-text');
+        if(domainElement) {
+            // قابلیت کپی راحت با دبل کلیک (اختیاری)
+            domainElement.setAttribute('title', 'برای کپی کلیک راست یا دابل کلیک کنید');
+        }
+    })();
+</script>
+
+<!-- برای بهبود نمایش در موبایل، متا مناسب تنظیم شد -->
+</body>
+</html>
